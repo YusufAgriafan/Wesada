@@ -26,10 +26,15 @@
                     </div>
                     <a href="contact" class="nav-item nav-link">Contact Us</a>
                 </div>
-                <a href="{{ route('login') }}" class="btn btn-light border border-primary rounded-pill text-primary py-2 px-4 me-4">Log In</a>
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="btn btn-primary rounded-pill text-white py-2 px-4">Register</a>
-                @endif
+                @guest
+                    <a href="{{ route('login') }}" class="btn btn-light border border-primary rounded-pill text-primary py-2 px-4 me-4">Log In</a>
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="btn btn-primary rounded-pill text-white py-2 px-4">Register</a>
+                    @endif
+                @endguest
+                @auth
+                    <a href="{{ route('logout') }}" class="btn btn-primary rounded-pill text-white py-2 px-4" id="logout-link">Log out</a>
+                @endauth
             </div>
         </nav>
     

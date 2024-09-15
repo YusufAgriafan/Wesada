@@ -18,39 +18,48 @@
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid name is required">
 						<x-text-input placeholder="Name" id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-						<x-input-error :messages="$errors->get('name')" class="mt-2" />
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-user" aria-hidden="true"></i>
 						</span>
 					</div>
+					<x-input-error :messages="$errors->get('name')" class="mt-2" />
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required">
 						<x-text-input placeholder="Email" id="email" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-						<x-input-error :messages="$errors->get('email')" class="mt-2" />
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
 						</span>
 					</div>
+					<x-input-error :messages="$errors->get('email')" class="mt-2" />
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
                         <x-text-input placeholder="Password" id="password" type="password" name="password" required autocomplete="current-password" />
-                        <x-input-error :messages="$errors->get('password')" class="mt-2" />
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
 					</div>
+					<x-input-error :messages="$errors->get('password')" class="mt-2" />
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
                         <x-text-input placeholder="Password confirmation" id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
-                        <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
 					</div>
+					<x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+
+					<div class="wrap-input100">
+                        <x-text-input placeholder="Token (optional)" id="token" class="block mt-1 w-full" type="text" name="token"/>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					<x-input-error :messages="$errors->get('token')" class="mt-2" />
 					
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">

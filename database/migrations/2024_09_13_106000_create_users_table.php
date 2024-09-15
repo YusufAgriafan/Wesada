@@ -17,6 +17,10 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->enum('role', ['admin', 'seller', 'user']);
+            $table->string('avatar')->nullable();
+            $table->unsignedBigInteger('token_id')->nullable();
+            $table->foreign('token_id')->references('id')->on('token');
             $table->rememberToken();
             $table->timestamps();
         });

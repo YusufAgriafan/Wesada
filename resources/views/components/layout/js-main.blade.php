@@ -12,4 +12,25 @@
 
     <!-- Template Javascript -->
     <script src=" {{ asset('/main/js/main.js ') }}"></script>
+
+    {{-- logout --}}
+    <script>
+        document.getElementById('logout-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            
+            fetch("{{ route('logout') }}", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    window.location.href = '/';
+                }
+            }).catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
 </div>

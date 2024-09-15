@@ -18,21 +18,21 @@
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required">
 						<x-text-input placeholder="Email" id="email" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-						<x-input-error :messages="$errors->get('email')" class="mt-2" />
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
 						</span>
 					</div>
+					<x-input-error :messages="$errors->get('email')" class="mt-2" />
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
                         <x-text-input placeholder="Password" id="password" type="password" name="password" required autocomplete="current-password" />
-                        <x-input-error :messages="$errors->get('password')" class="mt-2" />
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
 					</div>
+					<x-input-error :messages="$errors->get('password')" class="mt-2" />
 
 					<!-- Remember Me -->
 					<div class="block mt-4">
@@ -41,7 +41,7 @@
 							<span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
 						</label>
 					</div>
-					
+
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
 							Login
@@ -58,8 +58,14 @@
 							</a>
 						@endif
 					</div>
+					
+					<div class="container-login100-form-btn">
+						<a class="login100-form-btn" href="auth/redirect">
+							Login With Google
+						</a>
+					</div>
 
-					<div class="text-center p-t-136">
+					<div class="text-center">
 						<a class="txt2" href="/register">
 							Create your Account
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
