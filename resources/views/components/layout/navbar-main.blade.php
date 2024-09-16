@@ -25,6 +25,9 @@
                         </div>
                     </div>
                     <a href="contact" class="nav-item nav-link">Contact Us</a>
+                    @auth
+                        <x-layout.navlink-main href="/profile" :active="request()->is('profile')">Profil</x-layout.navlink-main>
+                    @endauth
                 </div>
                 @guest
                     <a href="{{ route('login') }}" class="btn btn-light border border-primary rounded-pill text-primary py-2 px-4 me-4">Log In</a>

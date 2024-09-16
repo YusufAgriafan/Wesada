@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>SeoDash Free Bootstrap Admin Template by Adminmart</title>
+        <title>{{ $title ?? 'Default Title' }}</title>
         <x-admin.css></x-admin.css>
     </head>
     <body>

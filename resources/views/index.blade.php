@@ -1,4 +1,8 @@
 <x-layout.layout-master>
+
+        <x-slot:title>
+            Wesada
+        </x-slot>
                
         <x-content.main.content-1></x-content.main.content-1>
 

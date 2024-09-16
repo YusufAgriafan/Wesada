@@ -17,6 +17,7 @@
                     <x-admin.sidebar-label>Home</x-admin.sidebar-label>
                     <x-admin.sidebar-link href="{{ route('admin.index') }}" :active="request()->is('admin.index')" icon="solar:home-smile-bold-duotone">Dashboard</x-admin.sidebar-link>
                     <x-admin.sidebar-link href="{{ route('admin.form') }}" :active="request()->is('admin.form')" icon="solar:file-text-bold-duotone">Form</x-admin.sidebar-link>
+                    <x-admin.sidebar-link href="{{ route('admin.information.index') }}" :active="request()->is('admin.information.index')" icon="solar:pen-new-square-bold-duotone">Informasi</x-admin.sidebar-link>
                 </ul>
             </nav>
             <!-- End Sidebar navigation -->

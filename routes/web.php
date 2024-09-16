@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\admin\information\CRUDInformationController;
 use App\Http\Controllers\main\MainController;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\seller\SellerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\SocialiteController;
 
@@ -35,10 +37,24 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::middleware('seller')->prefix('seller')->name('seller.')->group(function () {
+        Route::controller(SellerController::class)->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('/form', 'form')->name('form');
+        });
+    });
+
     Route::middleware('admin')->prefix('dashboard')->name('admin.')->group(function () {
         Route::controller(AdminController::class)->group(function () {
             Route::get('/', 'index')->name('index');
             Route::get('/form', 'form')->name('form');
+        });
+
+        Route::controller(CRUDInformationController::class)->prefix('information')->name('information.')->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::post('/store', 'store')->name('store');
+            Route::put('/{id}/update', 'update')->name('update');
+            Route::delete('/{id}/destroy', 'destroy')->name('destroy');
         });
     });
 });
