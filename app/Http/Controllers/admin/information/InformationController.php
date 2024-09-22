@@ -8,7 +8,7 @@ use DOMDocument;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
-class CRUDInformationController extends Controller
+class InformationController extends Controller
 {
     public function index()
     {
@@ -58,17 +58,6 @@ class CRUDInformationController extends Controller
         Information::create($input);
 
         return redirect()->route('admin.information.index')->with('success', 'Informasi Berhasil Ditambahkan!');
-    }
-
-    public function edit($title)
-    {
-        $information = Information::where('title', $title)->get();
-        if ($information->isEmpty()) {
-            abort(404);
-        }
-        $item = $information->first();
-
-        return view('admin.information.edit', compact('item'));
     }
 
     public function update(Request $request, $id)

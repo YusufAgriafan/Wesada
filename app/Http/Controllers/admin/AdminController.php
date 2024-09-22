@@ -11,8 +11,4 @@ class AdminController extends Controller
     {
         return view('admin.index');
     }
-    public function form()
-    {
-        return view('admin.ui-forms');
-    }
 }

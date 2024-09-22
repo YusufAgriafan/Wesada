@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\admin\information\CRUDInformationController;
+use App\Http\Controllers\admin\information\InformationController;
+use App\Http\Controllers\admin\game\GameController;
 use App\Http\Controllers\main\MainController;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\ProfileController;
@@ -24,6 +25,7 @@ Route::controller(MainController::class)->group(function () {
     Route::get('/about', 'about');
     Route::get('/blog', 'blog');
     Route::get('/contact', 'contact');
+    Route::post('/contact', 'send')->name('contact');
     Route::get('/feature', 'feature');
     Route::get('/pricing', 'pricing');
     Route::get('/service', 'service');
@@ -47,10 +49,17 @@ Route::middleware('auth')->group(function () {
     Route::middleware('admin')->prefix('dashboard')->name('admin.')->group(function () {
         Route::controller(AdminController::class)->group(function () {
             Route::get('/', 'index')->name('index');
-            Route::get('/form', 'form')->name('form');
+            Route::get('/contact', 'contact')->name('contact');
         });
 
-        Route::controller(CRUDInformationController::class)->prefix('information')->name('information.')->group(function () {
+        Route::controller(InformationController::class)->prefix('information')->name('information.')->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::post('/store', 'store')->name('store');
+            Route::put('/{id}/update', 'update')->name('update');
+            Route::delete('/{id}/destroy', 'destroy')->name('destroy');
+        });
+
+        Route::controller(GameController::class)->prefix('games')->name('games.')->group(function () {
             Route::get('/', 'index')->name('index');
             Route::post('/store', 'store')->name('store');
             Route::put('/{id}/update', 'update')->name('update');

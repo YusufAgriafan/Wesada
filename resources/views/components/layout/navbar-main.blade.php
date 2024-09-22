@@ -51,9 +51,19 @@
                 </div>
                 <div class="row gy-5 align-items-center">
                     <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
-                        <h1 class="display-4 text-dark mb-4 wow fadeInUp" data-wow-delay="0.3s">Turn Emails into Revenue</h1>
-                        <p class="fs-4 mb-4 wow fadeInUp" data-wow-delay="0.5s">Win new customers with the #1 email marketing and automations brand* that recommends ways to get more opens, clicks, and sales.</p>
-                        <a href="#" class="btn btn-primary rounded-pill py-3 px-5 wow fadeInUp" data-wow-delay="0.7s">Get Started</a>
+                        <h1 class="display-4 text-dark mb-4 wow fadeInUp" data-wow-delay="0.3s">Jelajahi Potensi Bisnismu, Raih Kesuksesan di Usia Muda!</h1>
+                        <p class="fs-4 mb-4 wow fadeInUp" data-wow-delay="0.5s">Mulailah perjalanan bisnismu sekarang dengan media pembelajaran yang interaktif, lengkap dengan analisis SWOT dan perhitungan RAB. Belajar sambil praktek langsung!</p>
+                        
+                        @guest
+                            <a href="#" class="btn btn-primary rounded-pill py-3 px-5 wow fadeInUp" data-wow-delay="0.7s">Mulai Sekarang</a>
+                        @endguest
+
+                        @auth
+                            @if (auth()->user()->role === 'user')
+                                <a href="#" class="btn btn-primary rounded-pill py-3 px-5 wow fadeInUp" data-wow-delay="0.7s">Mulai Sekarang</a>
+                            @endif
+                        @endauth
+                        
                     </div>
                     <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.2s">
                         <img src="{{ asset('/main/img/hero-img-1.png ') }}" class="img-fluid w-100 h-100" alt="">

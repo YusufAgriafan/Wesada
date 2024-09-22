@@ -85,18 +85,27 @@
             $('body').on('shown.bs.modal', function (e) {
                 var modal = $(e.target);
                 var textarea = modal.find('textarea');
-
-                if (textarea.hasClass('note-editor')) {
-                    textarea.summernote('destroy');
+    
+                if (!textarea.hasClass('note-initialized')) {
+                    textarea.summernote({
+                        height: 300,
+                    });
+    
+                    textarea.addClass('note-initialized');
                 }
-
-                textarea.summernote({
-                    height: 300,
-                });
+            });
+    
+            $('body').on('hidden.bs.modal', function (e) {
+                var modal = $(e.target);
+                var textarea = modal.find('textarea');
+    
+                if (textarea.hasClass('note-initialized')) {
+                    textarea.summernote('destroy');
+                    textarea.removeClass('note-initialized');
+                }
             });
         });
-
-
     </script>
+    
       
 </x-admin.layout>

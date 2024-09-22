@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -40,6 +41,32 @@ class DatabaseSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ]
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'Admin',
+            'email' => 'testing@gmail.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('testing'),
+            'role' => 'admin',
+            'avatar' => null, 
+            'token_id' => null,
+            'remember_token' => null,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'Seller',
+            'email' => 'seller@gmail.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('seller'),
+            'role' => 'seller',
+            'avatar' => null, 
+            'token_id' => null,
+            'remember_token' => null,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
     }
 }
