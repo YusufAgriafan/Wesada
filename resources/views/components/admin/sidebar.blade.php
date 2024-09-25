@@ -17,9 +17,12 @@
                     <x-admin.sidebar-label>Home</x-admin.sidebar-label>
                     <x-admin.sidebar-link href="{{ route('admin.index') }}" :active="request()->is('admin.index')" icon="solar:home-smile-bold-duotone">Dashboard</x-admin.sidebar-link>
 
-                    <x-admin.sidebar-label>CURD</x-admin.sidebar-label>
+                    <x-admin.sidebar-label>Konten</x-admin.sidebar-label>
                     <x-admin.sidebar-link href="{{ route('admin.information.index') }}" :active="request()->is('admin.information.index')" icon="solar:pen-new-square-bold-duotone">Informasi</x-admin.sidebar-link>
                     <x-admin.sidebar-link href="{{ route('admin.games.index') }}" :active="request()->is('admin.games.index')" icon="solar:gamepad-bold-duotone">Permainan</x-admin.sidebar-link>
+
+                    <x-admin.sidebar-label>Statis</x-admin.sidebar-label>
+                    <x-admin.sidebar-link href="{{ route('admin.contact') }}" :active="request()->is('admin.contact')" icon="solar:chat-round-dots-bold-duotone">Pesan</x-admin.sidebar-link>
                 </ul>
             </nav>
             <!-- End Sidebar navigation -->

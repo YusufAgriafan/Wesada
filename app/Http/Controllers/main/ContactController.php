@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\main;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -12,7 +12,7 @@ class ContactController extends Controller
     {
         return view('main.contact');
     }
-    
+
     public function send(Request $request)
     {
         $request->validate([
@@ -27,6 +27,6 @@ class ContactController extends Controller
 
         Contact::create($input);
 
-        return redirect()->route('masukan')->with('success', 'Pesan Berhasil Dikirim!');
+        return redirect()->route('contact.view')->with('success', 'Pesan Berhasil Dikirim!');
     }
 }

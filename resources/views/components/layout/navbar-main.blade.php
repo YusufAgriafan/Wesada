@@ -24,7 +24,7 @@
                             <a href="404" class="dropdown-item">404 Page</a>
                         </div>
                     </div>
-                    <a href="contact" class="nav-item nav-link">Contact Us</a>
+                    <x-layout.navlink-main href="/contact" :active="request()->is('contact.view')">Hubungi Kami</x-layout.navlink-main>
                     @auth
                         <x-layout.navlink-main href="/profile" :active="request()->is('profile')">Profil</x-layout.navlink-main>
                     @endauth

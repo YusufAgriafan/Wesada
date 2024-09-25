@@ -26,8 +26,8 @@ Route::middleware('guest')->group(function () {
     });
 
     Route::controller(ContactController::class)->group(function () {
-        Route::get('/contact', 'contact');
-        Route::post('/contact', 'send')->name('contact');
+        Route::get('/contact', 'contact')->name('contact.view');
+        Route::post('/contact', 'send')->name('contact.send');
     });
 });
 
