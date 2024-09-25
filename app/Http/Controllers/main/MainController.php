@@ -22,11 +22,6 @@ class MainController extends Controller
         return view('main.blog');
     }
 
-    public function contact()
-    {
-        return view('main.contact');
-    }
-
     public function feature()
     {
         return view('main.feature');

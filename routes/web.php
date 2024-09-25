@@ -3,37 +3,35 @@
 use App\Http\Controllers\admin\information\InformationController;
 use App\Http\Controllers\admin\game\GameController;
 use App\Http\Controllers\main\MainController;
+use App\Http\Controllers\main\ContactController;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\seller\SellerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\SocialiteController;
 
-// Route::get('/', function () {
-//     return view('index');
-// });
-
-Route::get('/dashboard', function () {
-    return view(view: 'dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::get('/auth/redirect', [SocialiteController::class, 'redirect']);
 Route::get('/auth/google/callback', [SocialiteController::class, 'callback']);
 
-Route::controller(MainController::class)->group(function () {
-    Route::get('/', 'index')->name('index');
-    Route::get('/about', 'about');
-    Route::get('/blog', 'blog');
-    Route::get('/contact', 'contact');
-    Route::post('/contact', 'send')->name('contact');
-    Route::get('/feature', 'feature');
-    Route::get('/pricing', 'pricing');
-    Route::get('/service', 'service');
-    Route::get('/testimonial', 'testimonial');
-    Route::get('/login2', 'login');
+Route::middleware('guest')->group(function () {
+    Route::controller(MainController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/about', 'about');
+        Route::get('/blog', 'blog');
+        Route::get('/feature', 'feature');
+        Route::get('/pricing', 'pricing');
+        Route::get('/service', 'service');
+        Route::get('/testimonial', 'testimonial');
+        Route::get('/login2', 'login');
+    });
+
+    Route::controller(ContactController::class)->group(function () {
+        Route::get('/contact', 'contact');
+        Route::post('/contact', 'send')->name('contact');
+    });
 });
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
