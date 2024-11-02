@@ -68,5 +68,20 @@ class DatabaseSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+
+        DB::table('custom_nama_usahas')->insert([
+            ['name' => 'Teice', 'user_id' => 2]
+        ]); 
+
+        // DB::table('custom_nav_links')->insert([
+        //     ['name' => 'Home', 'url' => '#hero', 'user_id' => null],
+        //     ['name' => 'About', 'url' => '#about', 'user_id' => null],
+        //     ['name' => 'Features', 'url' => '#features', 'user_id' => null],
+        //     ['name' => 'Services', 'url' => '#services', 'user_id' => null],
+        //     ['name' => 'Pricing', 'url' => '#pricing', 'user_id' => null],
+        //     ['name' => 'Contact', 'url' => '#contact', 'user_id' => null],
+        // ]);
+        
+        
     }
 }

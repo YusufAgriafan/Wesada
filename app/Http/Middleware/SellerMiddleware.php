@@ -21,6 +21,6 @@ class SellerMiddleware
             return $next($request);
         }
 
-        return redirect('/');
+        return redirect()->back();
     }
 }

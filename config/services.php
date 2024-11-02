@@ -41,4 +41,9 @@ return [
         'redirect' => env('GOOGLE_CALLBACK'),
     ],
 
+    'gemini' => [
+        'api_key' => env('GEMINI_API_KEY'),
+    ],
+
+
 ];

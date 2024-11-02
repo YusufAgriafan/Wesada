@@ -34,7 +34,11 @@ class AuthenticatedSessionController extends Controller
             return redirect()->intended(route('admin.index'));
         }
 
-        return redirect()->intended(route('index'));
+        if ($user->role === 'seller') {
+            return redirect()->intended(route('seller.index'));
+        }
+
+        return redirect()->intended(route('index', absolute:false));
     }
 
     /**

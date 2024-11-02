@@ -16,6 +16,8 @@
                 <ul id="sidebarnav">
                     <x-admin.sidebar-label>Home</x-admin.sidebar-label>
                     <x-admin.sidebar-link href="{{ route('seller.index') }}" :active="request()->is('seller.index')" icon="solar:home-smile-bold-duotone">Dashboard</x-admin.sidebar-link>
+                    <x-admin.sidebar-link href="{{ route('seller.custom') }}" :active="request()->is('seller.custom')" icon="solar:paint-roller-bold-duotone">Custom</x-admin.sidebar-link>
+                    <x-admin.sidebar-link href="{{ route('seller.chat') }}" :active="request()->is('seller.chat')" icon="solar:chat-dots-bold-duotone">AI Chat</x-admin.sidebar-link>
                     
                     <x-admin.sidebar-label>Kalkulator</x-admin.sidebar-label>
                     <x-admin.sidebar-link href="{{ route('admin.index') }}" :active="request()->is('seller.index')" icon="solar:home-smile-bold-duotone">Dashboard</x-admin.sidebar-link>
