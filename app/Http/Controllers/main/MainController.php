@@ -47,4 +47,26 @@ class MainController extends Controller
         return view('auth.login2');
     }
 
+    public function contact()
+    {
+        return view('main.contact');
+    }
+
+    public function send(Request $request)
+    {
+        $request->validate([
+            'nama' => 'required',
+            'email' => 'required',
+            'subjek' => 'required',
+            'pesan' => 'required',
+            'nomor' => 'nullable',
+        ]);
+
+        $input = $request->all();
+
+        Contact::create($input);
+
+        return redirect()->route('contact.view')->with('success', 'Pesan Berhasil Dikirim!');
+    }
+
 }

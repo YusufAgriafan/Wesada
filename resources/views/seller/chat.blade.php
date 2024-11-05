@@ -1,6 +1,6 @@
 <x-seller.layout>
     <x-slot:title>
-        Wesada - Custom Website
+        Wesada - Chat AI
     </x-slot>
 
     <div class="container">

@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "dompdf/dompdf": "^3.0",
         "erusev/parsedown": "^1.7",
         "google-gemini-php/laravel": "^1.0",
         "laravel/framework": "^11.9",

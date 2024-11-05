@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('chat_ai', function (Blueprint $table) {
+        Schema::create('hitung_net_profit_margin', function (Blueprint $table) {
             $table->id();
+            $table->decimal('laba_usaha', 20, 2);;
+            $table->decimal('perkiraan_penjualan', 20, 2);
+            $table->decimal('net_profit_margin', 20, 2);
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->text('chat');
-            $table->text('answer');
             $table->timestamps();
         });
+
     }
 
     /**
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('chat_ai');
+        Schema::dropIfExists('hitung_net_profit_margin');
     }
 };
