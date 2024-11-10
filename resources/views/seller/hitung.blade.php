@@ -96,7 +96,7 @@
                         </div>
                         <h4>=</h4>
                         <div class="col-md-3">
-                            <input type="number" class="form-control" name="persediaan_awal" id="persediaan_awal" placeholder="Persediaan Awal (Rp)" min="1" required>
+                            <input type="number" class="form-control" name="persediaan_awal" id="persediaan_awal" placeholder="Persediaan Awal (Rp)" required>
                         </div>
                         <h4>+</h4>
                         <div class="col-md-2">
@@ -259,7 +259,7 @@
                         </div>
                         <h4>=</h4>
                         <div class="col-md-3">
-                            <input type="number" class="form-control" name="persediaan_awal" id="biaya_produksipersediaan_awal" placeholder="Persediaan Awal (Rp)" min="1" required>
+                            <input type="number" class="form-control" name="persediaan_awal" id="biaya_produksipersediaan_awal" placeholder="Persediaan Awal (Rp)" required>
                         </div>
                         <h4>+</h4>
                         <div class="col-md-2">
