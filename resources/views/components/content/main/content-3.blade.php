@@ -22,8 +22,8 @@
                         @endisset
 
                     </div>
-                    <x-content.main.content-3-2>
-                    </x-content.main.content-3-2>
+                    {{-- <x-content.main.content-3-2>
+                    </x-content.main.content-3-2> --}}
                 </div>
             </div>
             <!-- Feature End -->

@@ -18,6 +18,7 @@ use App\Models\HitungNetProfitMargin;
 use App\Models\HitungGrosProfitMargin;
 use Illuminate\Support\Facades\DB;
 use Dompdf\Dompdf;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class HitungController extends Controller
@@ -177,25 +178,172 @@ class HitungController extends Controller
         $totalBiayaTetap = DB::table('hitung_biaya_tetap')
                 ->where('user_id', $user_id)
                 ->sum('total_biaya');
-        return view('seller.tampilan_hitung', compact('variabel','tetap', 'totalBiayaVariabel','totalBiayaTetap'));
+
+        $AmbilHargaJual = DB::table('hitung_harga_jual')
+                ->where('user_id', $user_id)
+                ->latest('updated_at')
+                ->first();
+        $hargaJual = $AmbilHargaJual ? $AmbilHargaJual->harga_jual : null;
+
+        $AmbilHPP = DB::table('hitung_hpp')
+                ->where('user_id', $user_id)
+                ->latest('updated_at')
+                ->first();
+        $hpp = $AmbilHPP ? $AmbilHPP->hpp : null;
+
+        $AmbilBEPUnit = DB::table('hitung_bep')
+                ->where('user_id', $user_id)
+                ->latest('updated_at')
+                ->first();
+        $bepUnit = $AmbilBEPUnit ? $AmbilBEPUnit->bep : null;
+
+        $AmbilBEPRupiah = DB::table('hitung_bep_rupiah')
+                ->where('user_id', $user_id)
+                ->latest('updated_at')
+                ->first();
+        $bepRupiah = $AmbilBEPRupiah ? $AmbilBEPRupiah->bep_rupiah : null;
+
+        $AmbilPerkiraanPenjulan = DB::table('hitung_perkiraan_penjualan')
+                ->where('user_id', $user_id)
+                ->latest('updated_at')
+                ->first();
+        $perkiraanPenjualan = $AmbilPerkiraanPenjulan ? $AmbilPerkiraanPenjulan->perkiraan_penjualan : null;
+
+        $AmbilBiayaProduksi = DB::table('hitung_biaya_produksi')
+                ->where('user_id', $user_id)
+                ->latest('updated_at')
+                ->first();
+        $biayaProduksi = $AmbilBiayaProduksi ? $AmbilBiayaProduksi->biaya_produksi : null;
+
+        $AmbilLabaUsaha = DB::table('hitung_laba_usaha')
+                ->where('user_id', $user_id)
+                ->latest('updated_at')
+                ->first();
+        $labaUsaha = $AmbilLabaUsaha ? $AmbilLabaUsaha->laba_usaha : null;
+
+        $AmbilLabaKotor = DB::table('hitung_laba_kotor')
+                ->where('user_id', $user_id)
+                ->latest('updated_at')
+                ->first();
+        $labaKotor = $AmbilLabaKotor ? $AmbilLabaKotor->laba_kotor : null;
+
+        $AmbilBCRatio = DB::table('hitung_bc_ratio')
+                ->where('user_id', $user_id)
+                ->latest('updated_at')
+                ->first();
+        $BCRatio = $AmbilBCRatio ? $AmbilBCRatio->bc_ratio : null;
+
+        $AmbilGrosProfitMargin = DB::table('hitung_gros_profit_margin')
+                ->where('user_id', $user_id)
+                ->latest('updated_at')
+                ->first();
+        $grosProfitMargin = $AmbilGrosProfitMargin ? $AmbilGrosProfitMargin->gros_profit_margin : null;
+
+        $AmbilNetProfitMargin = DB::table('hitung_net_profit_margin')
+                ->where('user_id', $user_id)
+                ->latest('updated_at')
+                ->first();
+        $netProfitMargin = $AmbilNetProfitMargin ? $AmbilNetProfitMargin->net_profit_margin : null;
+
+        return view('seller.tampilan_hitung', compact(
+            'variabel','tetap',
+            'totalBiayaVariabel','totalBiayaTetap','hargaJual','hpp', 'bepUnit', 'bepRupiah', 'perkiraanPenjualan',
+            'biayaProduksi', 'labaUsaha', 'labaKotor', 'BCRatio', 'netProfitMargin', 'grosProfitMargin'
+        ));
     }
 
     public function downloadPdf()
     {
         $user_id = Auth::id();
 
-        $variabel = HitungBiayaVariabel::where('user_id', $user_id)->latest()->get();
-        $tetap = HitungBiayaTetap::where('user_id', $user_id)->latest()->get();
-        $totalBiayaVariabel = $variabel->sum('total_biaya');
-        $totalBiayaTetap = $tetap->sum('total_biaya');
+        $variabel = HitungBiayaVariabel::latest()->get();
+        $tetap = HitungBiayaTetap::latest()->get();
+        $totalBiayaVariabel = DB::table('hitung_biaya_variabel')
+                ->where('user_id', $user_id)
+                ->sum('total_biaya');
+        $totalBiayaTetap = DB::table('hitung_biaya_tetap')
+                ->where('user_id', $user_id)
+                ->sum('total_biaya');
+
+        $AmbilHargaJual = DB::table('hitung_harga_jual')
+                ->where('user_id', $user_id)
+                ->latest('updated_at')
+                ->first();
+        $hargaJual = $AmbilHargaJual ? $AmbilHargaJual->harga_jual : null;
+
+        $AmbilHPP = DB::table('hitung_hpp')
+                ->where('user_id', $user_id)
+                ->latest('updated_at')
+                ->first();
+        $hpp = $AmbilHPP ? $AmbilHPP->hpp : null;
+
+        $AmbilBEPUnit = DB::table('hitung_bep')
+                ->where('user_id', $user_id)
+                ->latest('updated_at')
+                ->first();
+        $bepUnit = $AmbilBEPUnit ? $AmbilBEPUnit->bep : null;
+
+        $AmbilBEPRupiah = DB::table('hitung_bep_rupiah')
+                ->where('user_id', $user_id)
+                ->latest('updated_at')
+                ->first();
+        $bepRupiah = $AmbilBEPRupiah ? $AmbilBEPRupiah->bep_rupiah : null;
+
+        $AmbilPerkiraanPenjulan = DB::table('hitung_perkiraan_penjualan')
+                ->where('user_id', $user_id)
+                ->latest('updated_at')
+                ->first();
+        $perkiraanPenjualan = $AmbilPerkiraanPenjulan ? $AmbilPerkiraanPenjulan->perkiraan_penjualan : null;
+
+        $AmbilBiayaProduksi = DB::table('hitung_biaya_produksi')
+                ->where('user_id', $user_id)
+                ->latest('updated_at')
+                ->first();
+        $biayaProduksi = $AmbilBiayaProduksi ? $AmbilBiayaProduksi->biaya_produksi : null;
+
+        $AmbilLabaUsaha = DB::table('hitung_laba_usaha')
+                ->where('user_id', $user_id)
+                ->latest('updated_at')
+                ->first();
+        $labaUsaha = $AmbilLabaUsaha ? $AmbilLabaUsaha->laba_usaha : null;
+
+        $AmbilLabaKotor = DB::table('hitung_laba_kotor')
+                ->where('user_id', $user_id)
+                ->latest('updated_at')
+                ->first();
+        $labaKotor = $AmbilLabaKotor ? $AmbilLabaKotor->laba_kotor : null;
+
+        $AmbilBCRatio = DB::table('hitung_bc_ratio')
+                ->where('user_id', $user_id)
+                ->latest('updated_at')
+                ->first();
+        $BCRatio = $AmbilBCRatio ? $AmbilBCRatio->bc_ratio : null;
+
+        $AmbilGrosProfitMargin = DB::table('hitung_gros_profit_margin')
+                ->where('user_id', $user_id)
+                ->latest('updated_at')
+                ->first();
+        $grosProfitMargin = $AmbilGrosProfitMargin ? $AmbilGrosProfitMargin->gros_profit_margin : null;
+
+        $AmbilNetProfitMargin = DB::table('hitung_net_profit_margin')
+                ->where('user_id', $user_id)
+                ->latest('updated_at')
+                ->first();
+        $netProfitMargin = $AmbilNetProfitMargin ? $AmbilNetProfitMargin->net_profit_margin : null;
 
         // Menggunakan Dompdf untuk menghasilkan PDF
         $dompdf = new Dompdf();
-        $html = view('seller.tampilan_hitung', compact('variabel', 'tetap', 'totalBiayaVariabel', 'totalBiayaTetap'))->render();
+        $html = view('seller.pdf', compact(
+            'variabel','tetap',
+            'totalBiayaVariabel','totalBiayaTetap','hargaJual','hpp', 'bepUnit', 'bepRupiah', 'perkiraanPenjualan',
+            'biayaProduksi', 'labaUsaha', 'labaKotor', 'BCRatio', 'netProfitMargin', 'grosProfitMargin'
+        ))->render();
         $dompdf->loadHtml($html);
         $dompdf->setPaper('A4', 'portrait');
         $dompdf->render();
-        return $dompdf->stream('filename.pdf'); // Ganti 'filename.pdf' dengan nama file yang diinginkan
+        $filename = 'wesada_' . Carbon::now()->format('Ymd_His') . '.pdf';
+
+        return $dompdf->stream($filename);
     }
 
     public function hargaJualStore(Request $request)

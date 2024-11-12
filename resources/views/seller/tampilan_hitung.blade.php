@@ -82,34 +82,75 @@
                     </table>
                 </div>
                 
-          </div>
+        </div>
         <div class="card-body">
-            <h5 class="card-title">Rekapitulasi Biaya</h5>
+            <h5 class="card-title">Rekapitulasi Biaya dan Keuangan</h5>
             <div class="table-responsive">
                 <table class="table text-nowrap align-middle mb-0">
                     <thead>
                         <tr class="border-2 border-bottom border-primary border-0"> 
-                            <th scope="col" class="text-center">Jenis Biaya</th>
-                            <th scope="col" class="text-center">Total Biaya (Rp)</th>
+                            <th scope="col" class="text-center">Jenis Biaya/Indikator</th>
+                            <th scope="col" class="text-center">Nilai (Rp)</th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
                         <tr>
-                            <td class="text-center fw-medium">Variable Cost</td>
-                            <td class="text-center fw-medium" id="variable-cost">{{ $totalBiayaVariabel }}</td>
+                            <td class="text-center fw-medium">Biaya Variabel</td>
+                            <td class="text-center fw-medium">{{ number_format($totalBiayaVariabel, 0, ',', '.') }}</td>
                         </tr>
                         <tr>
-                            <td class="text-center fw-medium">Fixed Cost</td>
-                            <td class="text-center fw-medium" id="fixed-cost">{{ $totalBiayaTetap }}</td>
+                            <td class="text-center fw-medium">Biaya Tetap</td>
+                            <td class="text-center fw-medium">{{ number_format($totalBiayaTetap, 0, ',', '.') }}</td>
                         </tr>
                         <tr>
-                            <td class="text-center fw-medium"><b>Total RAB</b></td>
-                            <td class="text-center fw-medium" id="total-rab"></td>
+                            <td class="text-center fw-medium">Harga Jual</td>
+                            <td class="text-center fw-medium">{{ number_format($hargaJual, 0, ',', '.') }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center fw-medium">Harga Pokok Penjualan (HPP)</td>
+                            <td class="text-center fw-medium">{{ number_format($hpp, 0, ',', '.') }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center fw-medium">Break Even Point (BEP) Unit</td>
+                            <td class="text-center fw-medium">{{ number_format($bepUnit, 0, ',', '.') }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center fw-medium">Break Even Point (BEP) Rupiah</td>
+                            <td class="text-center fw-medium">{{ number_format($bepRupiah, 0, ',', '.') }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center fw-medium">Perkiraan Penjualan</td>
+                            <td class="text-center fw-medium">{{ number_format($perkiraanPenjualan, 0, ',', '.') }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center fw-medium">Total Biaya Produksi</td>
+                            <td class="text-center fw-medium">{{ number_format($biayaProduksi, 0, ',', '.') }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center fw-medium">Laba Usaha</td>
+                            <td class="text-center fw-medium">{{ number_format($labaUsaha, 0, ',', '.') }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center fw-medium">Laba Kotor</td>
+                            <td class="text-center fw-medium">{{ number_format($labaKotor, 0, ',', '.') }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center fw-medium">B/C Ratio</td>
+                            <td class="text-center fw-medium">{{ number_format($BCRatio, 2, ',', '.') }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center fw-medium">Gross Profit Margin</td>
+                            <td class="text-center fw-medium">{{ number_format($grosProfitMargin, 2, ',', '.') }}%</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center fw-medium">Net Profit Margin</td>
+                            <td class="text-center fw-medium">{{ number_format($netProfitMargin, 2, ',', '.') }}%</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
+        
 
     </div>
 

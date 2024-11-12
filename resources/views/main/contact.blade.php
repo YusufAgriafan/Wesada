@@ -83,7 +83,7 @@
                         <div class="bg-light d-flex align-items-center justify-content-center mb-3" style="width: 90px; height: 90px; border-radius: 50px;"><i class="fa fa-phone-alt fa-2x text-primary"></i></div>
                         <div class="ms-4">
                             <h4>Mobile</h4>
-                            <p class="mb-0">+012 345 67890</p>
+                            <p class="mb-0">+62 831-2280-4239</p>
                         </div>
                     </div>
                     <div class="d-flex align-items-center mb-4">

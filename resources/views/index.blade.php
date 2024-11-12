@@ -43,7 +43,7 @@
             
         </x-content.main.content-2>
         
-        <x-content.main.content-3 judul="Fitur Penting untuk Pembelajaran Kewirausahaan dan Manajemen Bisnis" kategori="Fitur Kami" url="/feature" link="Cek Lebih Lanjut">
+        <x-content.main.content-3 judul="Fitur Penting untuk Pembelajaran Kewirausahaan dan Manajemen Bisnis" kategori="Fitur Kami">
             Di Wesada, kami menawarkan fitur-fitur penting yang dirancang untuk membantu Anda menguasai dasar-dasar kewirausahaan dan 
             mempraktikkan strategi bisnis nyata melalui media interaktif.
 
@@ -94,35 +94,6 @@
         </x-content.main.content-4>
 
         <x-content.main.content-5></x-content.main.content-5>
-
-        <x-content.main.content-6 kategori="Wesada Blog" judul="Temukan Inspirasi Kewirausahaan Terbaru">
-            Dapatkan tips dan wawasan menarik seputar dunia kewirausahaan, manajemen bisnis, dan investasi. Melalui blog Wesada, 
-            kami membagikan pengalaman dan pengetahuan untuk membantu Anda memulai dan mengembangkan bisnis Anda sendiri. 
-            Bergabunglah dengan kami untuk artikel yang menginspirasi, studi kasus, dan panduan praktis yang relevan dengan 
-            perjalanan bisnis Anda.
-
-            <x-slot:isi>
-                <x-content.main.content6-partial tanggal="Dec 01.2024" judul="Dolor, sit amet consectetur adipisicing" link="Read More" url="#">
-                    <p>Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.
-                    </p>
-                </x-content.main.content6-partial>
-
-                <x-content.main.content6-partial tanggal="Dec 01.2024" judul="Dolor, sit amet consectetur adipisicing" link="Read More" url="#">
-                    <p>Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.
-                    </p>
-                </x-content.main.content6-partial>
-
-                <x-content.main.content6-partial tanggal="Dec 01.2024" judul="Dolor, sit amet consectetur adipisicing" link="Read More" url="#">
-                    <p>Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.
-                    </p>
-                </x-content.main.content6-partial>
-
-                <x-content.main.content6-partial tanggal="Dec 01.2024" judul="Dolor, sit amet consectetur adipisicing" link="Read More" url="#">
-                    <p>Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.
-                    </p>
-                </x-content.main.content6-partial>
-            </x-slot>
-        </x-content.main.content-6>
 
         {{-- <x-content.main.content-7></x-content.main.content-7> --}}
 

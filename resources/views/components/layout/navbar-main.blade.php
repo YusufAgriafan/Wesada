@@ -3,7 +3,7 @@
     <div class="container-fluid {{ Request::is('/') ? 'header position-relative overflow-hidden p-0' : 'p-0' }}">
         <nav class="navbar navbar-expand-lg {{ Request::is('/') ? 'fixed-top navbar-light' : 'navbar-light bg-transparent' }} px-4 px-lg-5 py-3 py-lg-0">
             <a href="/" class="navbar-brand p-0">
-                <h1 class="display-6 text-primary m-0"><i class="fas fa-money-bill-wave me-3"></i>Wesada</h1>
+                <h1 class="display-6 text-primary m-0"></i>Wesada</h1>
                 <!-- <img src="img/logo.png" alt="Logo"> -->
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -11,10 +11,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
-                    <x-layout.navlink-main href="/" :active="request()->is('/')">Home</x-layout.navlink-main>
-                    <x-layout.navlink-main href="/about" :active="request()->is('about')">About</x-layout.navlink-main>
-                    <x-layout.navlink-main href="/service" :active="request()->is('service')">Service</x-layout.navlink-main>
-                    <div class="nav-item dropdown">
+                    <x-layout.navlink-main href="/" :active="request()->is('/')">Halaman Utama</x-layout.navlink-main>
+                    <x-layout.navlink-main href="/informasi" :active="request()->is('informasi')">Informasi</x-layout.navlink-main>
+                    <x-layout.navlink-main href="/permainan" :active="request()->is('permainan')">Permainan</x-layout.navlink-main>
+                    {{-- <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                         <div class="dropdown-menu m-0">
                             <a href="feature" class="dropdown-item">Features</a>
@@ -23,7 +23,7 @@
                             <a href="testimonial" class="dropdown-item">Testimonial</a>
                             <a href="404" class="dropdown-item">404 Page</a>
                         </div>
-                    </div>
+                    </div> --}}
                     <x-layout.navlink-main href="/contact" :active="request()->is('contact.view')">Hubungi Kami</x-layout.navlink-main>
                     @auth
                         <x-layout.navlink-main href="/profile" :active="request()->is('profile')">Profil</x-layout.navlink-main>

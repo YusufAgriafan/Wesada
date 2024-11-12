@@ -22,15 +22,15 @@ require __DIR__.'/auth.php';
 
 Route::middleware('guest')->group(function () {
     Route::get('/', [MainController::class, 'index'])->name('index');
-    Route::get('/about', [MainController::class, 'about']);
-    Route::get('/blog', [MainController::class, 'blog']);
-    Route::get('/feature', [MainController::class, 'feature']);
-    Route::get('/pricing', [MainController::class, 'pricing']);
-    Route::get('/service', [MainController::class, 'service']);
-    Route::get('/testimonial', [MainController::class, 'testimonial']);
-    Route::get('/login2', [MainController::class, 'login']);
+
+    Route::get('/informasi', [MainController::class, 'informasi'])->name('informasi');
+    Route::get('/informasi/{title}', [MainController::class, 'baca'])->name('baca');
+
     Route::get('/contact', [ContactController::class, 'contact'])->name('contact.view');
     Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
+
+    Route::get('/permainan', [MainController::class, 'permainan'])->name('permainan');
+
 
     Route::get('/{name}', [GuestController::class, 'index'])->name('usaha');
 });
@@ -48,6 +48,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/custom/link/store', [SellerController::class, 'linkStore'])->name('custom.link.store');
 
         Route::post('/generate-content', [GeminiController::class, 'generateContent'])->name('generateContent');
+        Route::post('/ai/analisis', [GeminiController::class, 'analisisManajemen'])->name('analisisManajemen');
 
         Route::get('/variabel', [HitungController::class, 'variabel'])->name('variabel');
         Route::post('/variabel/store', [HitungController::class, 'variabelStore'])->name('variabel.store');

@@ -12,7 +12,12 @@
                 <textarea class="form-control" id="chat" name="chat" rows="3" required></textarea>
             </div>
             <input type="hidden" name="user_id" value="{{ auth()->id() }}">
-            <button type="submit" id="sendButton" class="btn btn-primary">Generate</button>
+            <button type="submit" id="sendButton" class="btn btn-primary mb-3">Generate</button>
+        </form>
+        <form id="analisisForm" action="{{ route('seller.analisisManajemen') }}" method="POST">
+            @csrf
+            <input type="hidden" name="user_id" value="{{ auth()->id() }}">
+            <button type="submit" class="btn btn-primary">Lakukan Analisis</button>
         </form>
 
         <div id="responseContainer" class="mt-3">
