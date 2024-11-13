@@ -78,4 +78,9 @@ class MainController extends Controller
         return redirect()->route('contact.view')->with('success', 'Pesan Berhasil Dikirim!');
     }
 
+    public function permainan()
+    {
+        return view('main.permainan');
+    }
+
 }

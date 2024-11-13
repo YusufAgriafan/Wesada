@@ -3,7 +3,7 @@
     <x-slot:title>
         Wesada - Dashboard
     </x-slot>
-
+{{-- 
       <div class="container-fluid">
         <div class="row">
             <div class="col-lg-8">
@@ -252,6 +252,6 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> --}}
 
 </x-admin.layout>

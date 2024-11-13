@@ -1,6 +1,6 @@
 <div>
     <!-- Favicon -->
-    <link  rel="icon" type="image/png" href="{{ asset('/main/img/favicon.ico ') }}" >
+    <link rel="icon" type="image/png" href="{{ asset('main/img/favicon.png') }}">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
